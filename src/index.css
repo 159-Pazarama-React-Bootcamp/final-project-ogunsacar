@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-* {
+html,* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,14 +40,20 @@ form {
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 label {
   display: block;
   margin: 24px auto;
+  color: #fff;
 }
 label span {
   display: block;
   margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 input,
 textarea {
@@ -58,6 +64,7 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: rgba(255,255,255,0.9);
 }
 input:focus {
   color: #41b883;
@@ -89,4 +96,44 @@ textarea {
   background-color: transparent;
   color: red;
   text-transform: uppercase;
+}
+
+.background::before{
+  content: '';
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(https://source.unsplash.com/random/?art,abstract,black);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.quoteContainer{
+  width: 960px;
+  margin-top: 20px;
+}
+
+.quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.author{
+  font-size: 1.5rem;
+  color: rgb(220, 220, 220);
 }
