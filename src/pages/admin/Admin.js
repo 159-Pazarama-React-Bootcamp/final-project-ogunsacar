@@ -1,4 +1,7 @@
 export default function Admin() {
+
+
+  
   return (
     <div className='admin-form'>
       <form>
@@ -16,7 +19,7 @@ export default function Admin() {
           </span>
           <input type="text" required />
         </label>
-        <button className="btn">Sorgula</button>
+        <button className="btn">Giriş yap</button>
       </form>
     </div>
   )
