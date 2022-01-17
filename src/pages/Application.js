@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import SingleApplication from "../../components/SingleApplication";
+import SingleApplication from "../components/SingleApplication";
 
 export default function Application() {
 

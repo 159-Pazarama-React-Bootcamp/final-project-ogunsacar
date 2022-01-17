@@ -75,3 +75,18 @@ textarea {
 .admin-form form {
   min-width: 480px;
 }
+
+.dashboard{
+  position: relative;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #888;
+}
+
+.logout-button{
+  background-color: transparent;
+  color: red;
+  text-transform: uppercase;
+}

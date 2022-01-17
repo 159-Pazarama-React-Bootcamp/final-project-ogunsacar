@@ -2,12 +2,13 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 import useAuthContext from "./hooks/useAuthContext"
 
 // components
-import Admin from "./pages/admin/Admin"
-import ApplicationList from "./pages/admin/applicationList/ApplicationList"
-import Application from "./pages/application/Application"
-import ApplicationSuccessful from "./pages/applicationSuccessful/ApplicationSuccessful"
-import CreateApplication from "./pages/createApplication/CreateApplication"
-import FindApplication from "./pages/findApplication/FindApplication"
+import Admin from "./pages/Admin"
+import Application from "./pages/Application"
+import ApplicationList from "./pages/ApplicationList"
+import ApplicationSuccessful from "./pages/ApplicationSuccessful"
+import CreateApplication from "./pages/CreateApplication"
+import FindApplication from "./pages/FindApplication"
+
 
 function App() {
   const { user, authIsReady } = useAuthContext()
