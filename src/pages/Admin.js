@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Link ,Outlet} from "react-router-dom"
+import { useNavigate } from "react-router"
+import { Link, Outlet } from "react-router-dom"
 import useAuthContext from "../hooks/useAuthContext"
 import { useLogin } from "../hooks/useLogin"
 import { useLogout } from "../hooks/useLogout"
@@ -7,9 +8,9 @@ import { useLogout } from "../hooks/useLogout"
 export default function Admin() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  let navigate = useNavigate()
 
   const { user } = useAuthContext()
-
   const { login, isPending, error } = useLogin()
   const { logout } = useLogout()
 
@@ -18,6 +19,8 @@ export default function Admin() {
     login(email, password)
     setPassword("")
     setEmail("")
+
+    navigate("/admin/basvuru-listesi")
   }
 
   if (!user) {
@@ -25,7 +28,7 @@ export default function Admin() {
       <div className="admin-form">
         <form onSubmit={handleSubmit}>
           <label>
-            <span>
+            <span className="admin-label">
               Email:
               <span className="mailandpassword">
                 {" "}
@@ -40,7 +43,7 @@ export default function Admin() {
             />
           </label>
           <label>
-            <span>
+            <span className="admin-label">
               Şifre: <span className="mailandpassword"> (bootcamp109)</span>
             </span>
             <input
@@ -62,16 +65,21 @@ export default function Admin() {
     )
   } else {
     return (
-      <div>
+      <div className="dashboard">
+        <div className="buttonDiv">
+          <h2>BAŞVURULAR</h2>
+          <button
+            className="btn logout-button"
+            onClick={() => {
+              logout()
+              navigate("/admin")
+            }}
+          >
+            Çıkış yap
+          </button>
+        </div>
 
-      <div className='dashboard'>
-        <button className="btn logout-button" onClick={logout}>
-          Çıkış yap
-        </button>
-      </div>
-        <Link to="/admin/basvuru-listesi">Başvuru listesi</Link>
-        <Link to="/admin/basvuru/1">Başvuru 1</Link>
-       <Outlet/>
+        <Outlet />
       </div>
     )
   }

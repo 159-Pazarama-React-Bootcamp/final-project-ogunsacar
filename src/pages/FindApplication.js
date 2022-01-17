@@ -18,7 +18,7 @@ export default function FindApplication() {
           <span>Başvuru kodu:</span>
           <input type="text" required />
         </label>
-        <button className="btn">Sorgula</button>
+        <button className="btn">SORGULA</button>
       </form>
       {quote && (
         <div className='quoteContainer'>
