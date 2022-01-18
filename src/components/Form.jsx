@@ -1,24 +1,35 @@
 import { useFormik } from "formik"
 import { useState } from "react"
+import { useNavigate } from "react-router"
 import * as Yup from "yup"
+import { useFirestore } from "../hooks/useFirestore"
 export default function Form() {
-  const [thumbnail, setThumbnail] = useState(null)
-  const [thumbnailError, setThumbnailError] = useState(null)
+  const { addDocument, response } =
+    useFirestore("applications")
+  const [attachedDoc, setAttachedDoc] = useState(null)
+  const [attachedDocError, setAttachedDocError] = useState(null)
+  const navigate = useNavigate()
 
   const handleFileChange = (e) => {
-    setThumbnail(null)
+    setAttachedDoc(null)
     let selected = e.target.files[0]
 
     if (!selected.type.includes("image")) {
-      setThumbnailError("'image' dosyası seçmelisiniz!")
+      setAttachedDocError("'image' dosyası seçmelisiniz!")
       return
     }
     if (selected.size > 200000) {
-      setThumbnailError("Dosya boyutu 200kb'dan az olmalı!")
+      setAttachedDocError("Dosya boyutu 200kb'dan az olmalı!")
       return
     }
-    setThumbnailError(null)
-    setThumbnail(selected)
+    setAttachedDocError(null)
+    setAttachedDoc(selected)
+  }
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
 
   const formik = useFormik({
@@ -45,19 +56,22 @@ export default function Form() {
         .max(100, "100 yaşından büyükseniz gençlerden yardım alın!"),
       description: Yup.string()
         .min(5, "Başvuru nedeni 10 harften az olmamalı!")
-        .max(150, "Başvuru nedeni 150 harften fazla olmamalı!")
+        .max(400, "Başvuru nedeni 400 harften fazla olmamalı!")
         .required("Başvuru nedenini belirtmeniz gerekmektedir!"),
       address: Yup.string()
         .min(20, "Adresiniz 20 karakterden az olmamalı!")
-        .max(150, "Adresiniz 150 karakterden fazla olmamalı!")
+        .max(200, "Adresiniz 200 karakterden fazla olmamalı!")
         .required("Adresinizi belirtmeniz gerekmektedir!"),
     }),
-    onSubmit: (values) => {
-      console.log(values,thumbnail)
+    onSubmit: (values, { resetForm }) => {
+      addDocument({ ...values, attachedDoc, applicationNumber: 'pazar'+ getRandomInt(100000,999999) + 'arama'  }).then(() => {
+        resetForm()
+        setTimeout(() => {
+          navigate("/basvuru-basarili")
+        }, 500)
+      })
     },
   })
-
-  console.log(formik.errors)
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -152,14 +166,27 @@ export default function Form() {
         )}
       </label>
       <label>
-        <span>Fotoğraflar/Ekler: <span className='mailandpassword'>(Zorunlu alan değil.)</span> </span>
-        <input type="file" onChange={handleFileChange}  />
-        {thumbnailError && <div className="input-error">{thumbnailError}</div>}
+        <span>
+          Fotoğraflar/Ekler:{" "}
+          <span className="mailandpassword">(Zorunlu alan değil.)</span>{" "}
+        </span>
+        <input type="file" onChange={handleFileChange} />
+        {attachedDocError && (
+          <div className="input-error">{attachedDocError}</div>
+        )}
       </label>
 
-      <button type="submit" className="btn">
-        GÖNDER
-      </button>
+      {!response.isPending && (
+        <button type="submit" className="btn">
+          GÖNDER
+        </button>
+      )}
+      {response.isPending && (
+        <button disabled className="btn">
+          GÖNDERİLİYOR
+        </button>
+      )}
+      
     </form>
   )
 }

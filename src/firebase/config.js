@@ -22,6 +22,7 @@ const db = getFirestore()
 const auth = getAuth()
 const storage = getStorage()
 
+
 // exporting these features so i can use where i want
 
 export  {db,auth,storage}

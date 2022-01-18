@@ -76,12 +76,14 @@ textarea {
 }
 
 .buttonDiv{
+  margin: 0 auto;
   height: 70px;
   box-shadow: 0px 1px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  max-width: 1200px;
 }
 
 .admin-form {
@@ -99,11 +101,7 @@ textarea {
   min-width: 480px;
 }
 
-.dashboard{
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
+
 
 
 .logout-button{
@@ -156,11 +154,100 @@ textarea {
   color: #fff;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-}
 
 .input-error{
   padding-top: 6px;
 }
+
+.dashboard{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: rgb(252, 252, 252);
+}
+
+.filters{
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+
+
+.application-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+  grid-gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  
+}
+
+.application-card .card{
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  
+}
+
+.application-card .card:hover {
+  transform: rotate(3deg) scale(1.2);
+}
+
+.application-card .card a {
+  display: block;
+  color: #41b883;
+  border: 1px solid #41b883;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 0.9em;
+  text-align: center;
+  width: 120px;
+  padding: 8px;
+  border-radius: 6px;
+  margin: 20px auto 0;
+}
+.application-card .card a:hover{
+  background-color: #41b883;
+  color: #fff;
+}
+
+.card-applicationId{
+  font-size: 14px;
+  text-align: end;
+}
+
+.card-applicationIdNumber{
+  font-size: 20px;
+  color: #41b883;
+}
+
+.applicant-name {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.description span{
+  color: #41b883;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #41b883;
+}
+.description {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  filter: invert(60%);
+}
+

@@ -19,6 +19,9 @@ export default function FindApplication() {
           <input type="text" required />
         </label>
         <button className="btn">SORGULA</button>
+        <div className='application-progress'>
+          Başvuru durumu 
+        </div>
       </form>
       {quote && (
         <div className='quoteContainer'>

@@ -12,7 +12,7 @@ import FindApplication from "./pages/FindApplication"
 
 function App() {
   const { user, authIsReady } = useAuthContext()
-console.log(user);
+
   return (
     <div className='app'>
       {authIsReady && (
@@ -41,10 +41,6 @@ console.log(user);
           </Routes>
         </BrowserRouter>
       )}
-      {/* 
-      <Route path="basvuru-listesi" element={user ? <ApplicationList/> : <Navigate to='/admin'/> } />
-      <Route path="basvuru/:basvuruNo" element={user ? <Application/> : <Navigate to='/admin'/>}/>
-      */}
     </div>
   )
 }

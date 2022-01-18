@@ -1,14 +1,13 @@
-import { useParams } from "react-router";
-import SingleApplication from "../components/SingleApplication";
-import { Link, Outlet } from "react-router-dom"
-
+import { useParams } from "react-router"
+import useGetSingleDocument from "../hooks/useGetSingleDocument"
 
 export default function Application() {
+  const { basvuruNo } = useParams()
+  const {document} = useGetSingleDocument('applications',basvuruNo)
 
-const {basvuruNo} = useParams()
-
-  return (<div>
-      <SingleApplication/>
-      <h1>{basvuruNo}</h1>
-  </div>)
+  return (
+    <div className='single-application'>
+      <h1>{document?.name}</h1>
+    </div>
+  )
 }
