@@ -45,6 +45,7 @@ form {
   position: relative;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.25);
+  
 }
 label {
   display: block;
@@ -98,10 +99,8 @@ textarea {
   width: 100vw;
 }
 .admin-form form {
-  min-width: 480px;
+  min-width: 480px
 }
-
-
 
 
 .logout-button{
@@ -130,7 +129,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .quoteContainer{
@@ -220,34 +219,198 @@ textarea {
   text-align: end;
 }
 
+.card-name{
+  font-size: 24px;
+}
+.card-name h3{
+  margin-bottom: 10px;
+}
+
 .card-applicationIdNumber{
+  display: block;
+  text-align: end;
   font-size: 20px;
   color: #41b883;
 }
 
-.applicant-name {
-  margin-top: 15px;
-  font-size: 20px;
-}
-
-.description span{
-  color: #41b883;
-  display: inline-block;
+.card-grid{
   margin-top: 10px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #41b883;
-}
-.description {
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.delete {
+
+.card-description {
+  color: #333;  
+  font-size: 24px;
+  word-break: break-all;
+
+}
+
+
+/* success page */
+
+.successful-application{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successful-application-container{
+  padding: 100px 150px;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(65, 184, 131, 0.4);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.successful-application-text{
+  font-size: 32px;
+}
+.successful-application-text span{
+  color: #41b883;
+}
+.successful-application-btn{
+  border: 0;
+  background-color: #41b883;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.successful-application-appNumber{
+text-align: center;
+font-size: 32px;
+color: #2f66c6;
+padding: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+/* APPLICATION PROGRESS */
+
+.application-progress {
+  margin-top: 20px;
+  
+}
+
+
+/* icons */
+
+.icon{
+ height: 2em;
+ width: 3em;
+}
+
+
+/* single application */
+
+.admin-application{
+  background-color: rgb(240, 240, 240);
+  min-height: 60vh;
+  width: 640px;
+  padding: 80px;
+  border: 1px solid #000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+.admin-application-date{
   position: absolute;
   top: 10px;
-  right: 10px;
-  cursor: pointer;
-  filter: invert(60%);
+  left: 20px;
+  color: #999;
+  font-size: 20px;
+}
+.admin-application-applicationId{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  color: orangered;
 }
 
+.admin-application-progress{
+  color: rgb(68, 0, 255);
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+}
+.admin-application-progress.approved{
+  color: green;
+}
+.admin-application-progress.declined{
+  color: red;
+}
+
+.admin-application-name{
+  text-align: center;
+  margin: 10px;
+  
+}
+.admin-application-age-id{
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.admin-application-description{
+
+}
+
+.admin-application-address{
+  
+}
+
+.comments {
+  list-style: none;
+  flex: 1;
+  width: 100%;
+}
+.comment-list-item {
+  margin: 10px 0;
+  
+}
+.application-comment-form{
+  margin-top: 20px;
+  display: flex;
+}
+.application-comment-form input{
+  margin-bottom: auto;
+  width: 350px;
+}
+
+
+.admin-application-btnGroup {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.admin-application-btn{
+  padding: 10px 40px;
+  color: #fff;
+  border: 0;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.green-btn{
+  background-color: green;
+}
+.red-btn{
+  background-color: red;
+}
