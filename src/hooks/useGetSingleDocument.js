@@ -1,18 +1,20 @@
 import { doc, onSnapshot } from "@firebase/firestore"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { db } from "../firebase/config"
 
 // getting single application
 
-export default function useGetSingleDocument(col,id) {
+export default function useGetSingleDocument(col, id) {
   const [document, setDocument] = useState(null)
 
   const getDocRef = doc(db, col, id)
 
+  const ref = useRef(getDocRef).current
+
   useEffect(() => {
-    onSnapshot(getDocRef,(doc) => {
-        setDocument({...doc.data() , id: doc.id})
+    onSnapshot(ref, (doc) => {
+      setDocument({ ...doc.data(), id: doc.id })
     })
-  }, [getDocRef])
+  }, [ref])
   return { document }
 }

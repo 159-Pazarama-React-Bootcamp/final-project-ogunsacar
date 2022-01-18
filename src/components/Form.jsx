@@ -26,11 +26,6 @@ export default function Form() {
     setAttachedDoc(selected)
   }
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  }
 
   const formik = useFormik({
     initialValues: {
@@ -64,7 +59,7 @@ export default function Form() {
         .required("Adresinizi belirtmeniz gerekmektedir!"),
     }),
     onSubmit: (values, { resetForm }) => {
-      addDocument({ ...values, attachedDoc, applicationNumber: 'pazar'+ getRandomInt(100000,999999) + 'arama'  }).then(() => {
+      addDocument({ ...values, attachedDoc }).then(() => {
         resetForm()
         setTimeout(() => {
           navigate("/basvuru-basarili")

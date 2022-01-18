@@ -1,7 +1,6 @@
 import {
   addDoc,
   collection,
-  deleteDoc,
   doc,
   Timestamp,
   updateDoc,
@@ -60,10 +59,15 @@ export const useFirestore = (col) => {
   //reducer hook
   const [response, dispatch] = useReducer(firestoreReducer, initialState)
 
+  const createdAt = Timestamp.fromDate(new Date())
+
+  const initialVariables = {progress : 'Bekliyor', comments :[{comment: 'Başvurunu aldık!',commentDate: createdAt}]}
+
+
   // if user cancels the progress we should not get error
   // that is why we should make a state for it and return when component unmounted
   const [isCancelled, setIsCancelled] = useState(false)
- //  const [addedApplicationId , setAddedApllicationId] = useState('')
+  //const [addedApplicationId , setAddedApllicationId] = useState(null)
 
   // document reference
   const ref = collection(db, col)
@@ -82,8 +86,10 @@ export const useFirestore = (col) => {
 
     try {
       const createdAt = Timestamp.fromDate(new Date())
-      const addedDocument = await addDoc(ref, { ...doc, createdAt })
-      // setAddedApllicationId(addedDocument.id)
+      const addedDocument = await addDoc(ref, { ...doc, createdAt,...initialVariables })
+      
+      
+      localStorage.setItem('appId',addedDocument.id) 
      
       dispatchIfNotCancelled({ type: "ADDED_DOC", payload: addedDocument })
       
@@ -92,20 +98,7 @@ export const useFirestore = (col) => {
     }
   }
 
-  // delete document from collection
-
-  const deleteDocument = async (id) => {
-    dispatch({ type: "IS_PENDING" })
-
-    try {
-      const deleteDocRef = doc(db, col, id)
-
-      await deleteDoc(deleteDocRef)
-      dispatchIfNotCancelled({ type: "DELETED_DOC" })
-    } catch (err) {
-      dispatchIfNotCancelled({ type: "ERROR", payload: err.message })
-    }
-  }
+  
 
   // update document
 
@@ -130,5 +123,5 @@ export const useFirestore = (col) => {
     }
   }, [])
 
-  return { addDocument, deleteDocument, updateDocument, response }
+  return { addDocument, updateDocument, response }
 }
