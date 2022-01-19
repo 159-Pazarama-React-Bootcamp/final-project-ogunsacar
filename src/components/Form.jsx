@@ -3,6 +3,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router"
 import * as Yup from "yup"
 import { useFirestore } from "../hooks/useFirestore"
+import './Form.css'
+
+
+
 export default function Form() {
   const { addDocument, response } =
     useFirestore("applications")
@@ -69,10 +73,11 @@ export default function Form() {
   })
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label>
-        <span>Ad:</span>
+    <form className='application-form' onSubmit={formik.handleSubmit}>
+      <label className='application-form-label'>
+        <span className='application-form-span'>Ad:</span>
         <input
+        className='application-form-input'
           id="name"
           name="name"
           type="text"
@@ -85,9 +90,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.name}</p>
         )}
       </label>
-      <label>
-        <span>Soyad:</span>
+      <label className='application-form-label'>
+        <span className='application-form-span'>Soyad:</span>
         <input
+        className='application-form-input'
           id="surname"
           name="surname"
           type="text"
@@ -100,9 +106,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.surname}</p>
         )}
       </label>
-      <label>
-        <span>Yaş:</span>
+      <label className='application-form-label'>
+        <span className='application-form-span'>Yaş:</span>
         <input
+        className='application-form-input'
           id="age"
           name="age"
           type="number"
@@ -115,9 +122,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.age}</p>
         )}
       </label>
-      <label>
-        <span>Tc Kimlik No:</span>
+      <label className='application-form-label'>
+        <span className='application-form-span'>Tc Kimlik No:</span>
         <input
+        className='application-form-input'
           id="idNumber"
           name="idNumber"
           type="number"
@@ -130,9 +138,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.idNumber}</p>
         )}
       </label>
-      <label>
-        <span>Başvuru Nedeni:</span>
+      <label className='application-form-label'>
+        <span className='application-form-span'>Başvuru Nedeni:</span>
         <textarea
+        className='application-form-textarea'
           id="description"
           name="description"
           type="text"
@@ -145,9 +154,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.description}</p>
         )}
       </label>
-      <label>
-        <span>Adres:</span>
+      <label className='application-form-label'> 
+        <span className='application-form-span'>Adres:</span>
         <textarea
+        className='application-form-textarea'
           id="address"
           name="address"
           type="text"
@@ -160,12 +170,12 @@ export default function Form() {
           <p className="input-error">{formik.errors.address}</p>
         )}
       </label>
-      <label>
-        <span>
+      <label className='application-form-label'>
+        <span className='application-form-span'>
           Fotoğraflar/Ekler:{" "}
           <span className="mailandpassword">(Zorunlu alan değil.)</span>{" "}
         </span>
-        <input type="file" onChange={handleFileChange} />
+        <input className='application-form-input' type="file" onChange={handleFileChange} />
         {attachedDocError && (
           <div className="input-error">{attachedDocError}</div>
         )}

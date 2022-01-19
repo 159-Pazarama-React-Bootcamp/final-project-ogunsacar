@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import useGetSingleDocument from "../hooks/useGetSingleDocument"
+import './FindApplicatioons.css'
 
 export default function FindApplication() {
   const [quote, setQuote] = useState(null)
@@ -22,10 +23,10 @@ export default function FindApplication() {
   return (
     <div className="background">
       <Navbar />
-      <form>
-        <label>
-          <span>Başvuru kodu:</span>
-          <input value={inputValue} placeholder={requestedAppId} onChange={(e) => setInputValue(e.target.value)}  type="text"  required />
+      <form className='find-application-form'>
+        <label className='find-application-label'>
+          <span className='find-application-span'>Başvuru kodu:</span>
+          <input className='find-application-input' value={inputValue} placeholder={requestedAppId} onChange={(e) => setInputValue(e.target.value)}  type="text"  required />
         </label>
         <button className="btn">SORGULA</button>
         <div className="application-progress">

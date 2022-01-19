@@ -12,10 +12,12 @@ code {
     monospace;
 }
 
-html,* {
+html,
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .btn {
@@ -29,6 +31,12 @@ html,* {
   text-transform: uppercase;
 }
 
+.btn-goBack {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
 .mailandpassword {
   display: inline;
   font-size: 12px;
@@ -37,7 +45,7 @@ html,* {
 }
 
 /* forms */
-form {
+/* form {
   max-width: 480px;
   margin: 0 auto;
   padding: 20px;
@@ -74,9 +82,50 @@ input:focus {
 }
 textarea {
   min-height: 100px;
-}
+} */
 
-.buttonDiv{
+
+
+/* 
+.application-form {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.application-form-label {
+  display: block;
+  margin: 24px auto;
+  color: #fff;
+}
+.application-form-span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.application-form-input,
+.application-form-textarea {
+  padding: 8px 6px;
+  font-size: 1em;
+  color: #777;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.application-form-input:focus {
+  color: #41b883;
+}
+.application-form-textarea {
+  min-height: 100px;
+} */
+
+.buttonDiv {
   margin: 0 auto;
   height: 70px;
   box-shadow: 0px 1px rgba(0, 0, 0, 0.5);
@@ -87,31 +136,74 @@ textarea {
   max-width: 1200px;
 }
 
-.admin-form {
+/* admin form */
+/* 
+.admin-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://source.unsplash.com/random/?art,abstract,black);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://source.unsplash.com/random/?art,abstract,black);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   width: 100vw;
 }
-.admin-form form {
-  min-width: 480px
+
+.admin-form {
+  min-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
 }
+.admin-form-label {
+  color: #fff;
+  display: inline;
+}
+.admin-form-span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.admin-form-input {
+  margin: 10px auto;
+  padding: 8px 6px;
+  font-size: 1em;
+  color: #777;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.admin-form-input:focus {
+  color: #41b883;
+}
+.admin-form .btn {
+  margin-top: 10px;
+} */
 
+/*  */
 
-.logout-button{
+.logout-button {
   background-color: transparent;
   color: red;
   text-transform: uppercase;
 }
+.input-error{
+  color: rgb(205, 218, 12);
+}
 
-.background::before{
-  content: '';
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://source.unsplash.com/random/?art,abstract,black);
+.background::before {
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://source.unsplash.com/random/?art,abstract,black);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -125,14 +217,14 @@ textarea {
   z-index: -1;
 }
 
-.app{
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-.quoteContainer{
+.quoteContainer {
   width: 960px;
   margin-top: 20px;
 }
@@ -143,45 +235,37 @@ textarea {
   color: #fff;
 }
 
-.author{
+.author {
   font-style: italic;
   font-size: 1.5rem;
   color: rgb(220, 220, 220);
 }
 
-.admin-label{
-  color: #fff;
-}
-
-
-.input-error{
+.input-error {
   padding-top: 6px;
 }
 
-.dashboard{
+.dashboard {
   width: 100vw;
   height: 100vh;
   position: relative;
   background-color: rgb(252, 252, 252);
 }
 
-.filters{
+/* .filters {
   max-width: 1200px;
   margin: 30px auto;
 }
 
-
-
 .application-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
   grid-gap: 20px;
   max-width: 1200px;
   margin: 40px auto;
-  
-}
-
-.application-card .card{
+} */
+/* 
+.application-card .card {
   background-color: #fff;
   color: #333;
   padding: 20px;
@@ -189,7 +273,6 @@ textarea {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   position: relative;
-  
 }
 
 .application-card .card:hover {
@@ -209,31 +292,37 @@ textarea {
   border-radius: 6px;
   margin: 20px auto 0;
 }
-.application-card .card a:hover{
+.application-card .card a:hover {
   background-color: #41b883;
   color: #fff;
 }
 
-.card-applicationId{
+.card-applicationId {
   font-size: 14px;
   text-align: end;
 }
 
-.card-name{
+.card-name {
   font-size: 24px;
 }
-.card-name h3{
+.card-name h3 {
   margin-bottom: 10px;
 }
 
-.card-applicationIdNumber{
+.card-applicationIdNumber {
   display: block;
   text-align: end;
   font-size: 20px;
+  color: rgb(68, 0, 255);
+}
+.card-applicationIdNumber.approvedApplication {
   color: #41b883;
 }
+.card-applicationIdNumber.declinedApplication {
+  color: red;
+}
 
-.card-grid{
+.card-grid {
   margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -242,18 +331,15 @@ textarea {
   gap: 20px;
 }
 
-
 .card-description {
-  color: #333;  
+  color: #333;
   font-size: 24px;
   word-break: break-all;
-
-}
-
+} */
 
 /* success page */
-
-.successful-application{
+/* 
+.successful-application {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -261,7 +347,7 @@ textarea {
   justify-content: center;
 }
 
-.successful-application-container{
+.successful-application-container {
   padding: 100px 150px;
   max-width: 1000px;
   box-shadow: 0 0 10px rgba(65, 184, 131, 0.4);
@@ -270,13 +356,13 @@ textarea {
   flex-direction: column;
   align-items: center;
 }
-.successful-application-text{
+.successful-application-text {
   font-size: 32px;
 }
-.successful-application-text span{
+.successful-application-text span {
   color: #41b883;
 }
-.successful-application-btn{
+.successful-application-btn {
   border: 0;
   background-color: #41b883;
   color: #fff;
@@ -285,36 +371,35 @@ textarea {
   margin-top: 20px;
   cursor: pointer;
 }
-.successful-application-appNumber{
-text-align: center;
-font-size: 32px;
-color: #2f66c6;
-padding: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
-}
+.successful-application-appNumber {
+  text-align: center;
+  font-size: 32px;
+  color: #2f66c6;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+} */
 
 /* APPLICATION PROGRESS */
 
 .application-progress {
   margin-top: 20px;
-  
 }
-
 
 /* icons */
 
-.icon{
- height: 2em;
- width: 3em;
+.icon {
+  height: 2em;
+  width: 3em;
 }
 
 
-/* single application */
 
-.admin-application{
+/* single application */
+/* 
+.admin-application {
   background-color: rgb(240, 240, 240);
   min-height: 60vh;
   width: 640px;
@@ -327,51 +412,54 @@ gap: 10px;
   align-items: center;
   border-radius: 50px;
 }
-.admin-application-date{
+.admin-application-date {
   position: absolute;
   top: 10px;
   left: 20px;
   color: #999;
   font-size: 20px;
 }
-.admin-application-applicationId{
+.admin-application-applicationId {
   position: absolute;
   top: 10px;
   right: 20px;
   font-size: 20px;
-  color: orangered;
+  color: rgb(68, 0, 255);
+}
+.admin-application-applicationId.approved {
+  color: #41b883;
+}
+.admin-application-applicationId.declined {
+  color: red;
 }
 
-.admin-application-progress{
+.admin-application-progress {
   color: rgb(68, 0, 255);
   text-align: center;
   text-transform: uppercase;
   padding: 15px;
 }
-.admin-application-progress.approved{
+.admin-application-progress.approved {
   color: green;
 }
-.admin-application-progress.declined{
+.admin-application-progress.declined {
   color: red;
 }
 
-.admin-application-name{
+.admin-application-name {
   text-align: center;
   margin: 10px;
-  
 }
-.admin-application-age-id{
+.admin-application-age-id {
   font-size: 15px;
   display: inline-block;
   margin-left: 10px;
 }
 
-.admin-application-description{
-
+.admin-application-description {
 }
 
-.admin-application-address{
-  
+.admin-application-address {
 }
 
 .comments {
@@ -381,17 +469,32 @@ gap: 10px;
 }
 .comment-list-item {
   margin: 10px 0;
-  
 }
-.application-comment-form{
-  margin-top: 20px;
+.application-comment-form {
   display: flex;
+  margin-top: 15px;
 }
-.application-comment-form input{
+.comment-form-input {
   margin-bottom: auto;
   width: 350px;
-}
+  padding: 10px;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid orangered;
 
+}
+.comment-form-input:focus{
+  outline: 0;
+}
+.comment-form-btn{
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color:transparent;
+  color: orangered;
+  border: 0;
+  cursor: pointer;
+  border: 1px solid orangered;
+}
 
 .admin-application-btnGroup {
   margin-top: auto;
@@ -400,7 +503,7 @@ gap: 10px;
   align-items: center;
   gap: 20px;
 }
-.admin-application-btn{
+.admin-application-btn {
   padding: 10px 40px;
   color: #fff;
   border: 0;
@@ -408,9 +511,84 @@ gap: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
-.green-btn{
+.green-btn {
   background-color: green;
 }
-.red-btn{
+.red-btn {
   background-color: red;
+} */
+
+/*  */
+
+/* .find-application-form{
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
 }
+
+.find-application-label{
+  display: block;
+  margin: 24px auto;
+  color: #fff;
+}
+
+.find-application-span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.find-application-input {
+  padding: 8px 6px;
+  font-size: 1em;
+  color: #777;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.9);
+} */
+
+/* forms */
+/* form {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
+  
+}
+label {
+  display: block;
+  margin: 24px auto;
+  color: #fff;
+}
+label span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+input,
+textarea {
+  padding: 8px 6px;
+  font-size: 1em;
+  color: #777;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.9);
+}
+input:focus {
+  color: #41b883;
+}
+textarea {
+  min-height: 100px;
+} */

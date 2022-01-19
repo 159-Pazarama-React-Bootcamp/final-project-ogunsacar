@@ -1,13 +1,15 @@
 import { Timestamp } from "@firebase/firestore"
 import { useState } from "react"
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { useFirestore } from "../hooks/useFirestore"
+import './Application.css'
 
 import useGetSingleDocument from "../hooks/useGetSingleDocument"
 
 export default function Application() {
   const [comment, setComment] = useState("")
   const { updateDocument } = useFirestore("applications")
+  const navigate = useNavigate()
   let newComment = {
     commentDate: Timestamp.fromDate(new Date()),
     comment,
@@ -33,7 +35,9 @@ export default function Application() {
         {" "}
         {application?.createdAt.seconds}{" "}
       </h2>
-      <h2 className="admin-application-applicationId">{application?.id} </h2>
+      <h2 className={`admin-application-applicationId ${
+          application?.progress === "Onaylandı" ? "approved" : ""
+        } ${application?.progress === "Reddedildi" ? "declined" : ""}`}>{application?.id} </h2>
       <h1
         className={`admin-application-progress ${
           application?.progress === "Onaylandı" ? "approved" : ""
@@ -59,16 +63,17 @@ export default function Application() {
       {/* attached docs */}
       <form onSubmit={handleSubmit} className="application-comment-form">
         <input
+        className='comment-form-input'
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           type="text"
         />
-        <button type="submit">yorum ekle</button>
+        <button className='comment-form-btn' type="submit">Yorum ekle</button>
       </form>
       <ul className="comments">
         {application &&
           application?.comments.map((comment) => (
-            <li className="comment-list-item" key={comment.comment}>
+            <li className="comment-list-item" key={comment.commentDate.seconds}>
               <div className="comment">{comment.comment} - {comment.commentDate.seconds}  </div>
             </li>
           ))}
@@ -91,6 +96,9 @@ export default function Application() {
           </button>
         </div>
       )}
+      <button className='btn btn-goBack' type='button' onClick={() => {
+        navigate('/admin/basvuru-listesi')
+      }}>Geri gel</button>
     </div>
   )
 }

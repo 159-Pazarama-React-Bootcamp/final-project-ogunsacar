@@ -1,5 +1,6 @@
 import SingleApplication from "../components/SingleApplication"
 import useCollection from "../hooks/useCollection"
+import './ApplicationList.css'
 
 export default function ApplicationList() {
   const { documents: applications } = useCollection("applications")

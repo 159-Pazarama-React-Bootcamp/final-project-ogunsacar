@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router"
+import './ApplicationSuccessful.css'
 
 export default function ApplicationSuccessful() {
   const navigate = useNavigate()

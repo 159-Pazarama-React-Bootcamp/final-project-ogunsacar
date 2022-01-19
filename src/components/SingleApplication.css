@@ -1,0 +1,72 @@
+
+.application-card .card {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .application-card .card:hover {
+    transform: rotate(3deg) scale(1.2);
+  }
+  
+  .application-card .card a {
+    display: block;
+    color: #41b883;
+    border: 1px solid #41b883;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 0.9em;
+    text-align: center;
+    width: 120px;
+    padding: 8px;
+    border-radius: 6px;
+    margin: 20px auto 0;
+  }
+  .application-card .card a:hover {
+    background-color: #41b883;
+    color: #fff;
+  }
+  
+  .card-applicationId {
+    font-size: 14px;
+    text-align: end;
+  }
+  
+  .card-name {
+    font-size: 24px;
+  }
+  .card-name h3 {
+    margin-bottom: 10px;
+  }
+  
+  .card-applicationIdNumber {
+    display: block;
+    text-align: end;
+    font-size: 20px;
+    color: rgb(68, 0, 255);
+  }
+  .card-applicationIdNumber.approvedApplication {
+    color: #41b883;
+  }
+  .card-applicationIdNumber.declinedApplication {
+    color: red;
+  }
+  
+  .card-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .card-description {
+    color: #333;
+    font-size: 24px;
+    word-break: break-all;
+  }

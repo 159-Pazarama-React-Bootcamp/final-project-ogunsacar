@@ -1,0 +1,119 @@
+
+.admin-application {
+    background-color: rgb(240, 240, 240);
+    min-height: 60vh;
+    width: 640px;
+    padding: 80px;
+    border: 1px solid #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+  }
+  .admin-application-date {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #999;
+    font-size: 20px;
+  }
+  .admin-application-applicationId {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: rgb(68, 0, 255);
+  }
+  .admin-application-applicationId.approved {
+    color: #41b883;
+  }
+  .admin-application-applicationId.declined {
+    color: red;
+  }
+  
+  .admin-application-progress {
+    color: rgb(68, 0, 255);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px;
+  }
+  .admin-application-progress.approved {
+    color: green;
+  }
+  .admin-application-progress.declined {
+    color: red;
+  }
+  
+  .admin-application-name {
+    text-align: center;
+    margin: 10px;
+  }
+  .admin-application-age-id {
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .admin-application-description {
+  }
+  
+  .admin-application-address {
+  }
+  
+  .comments {
+    list-style: none;
+    flex: 1;
+    width: 100%;
+  }
+  .comment-list-item {
+    margin: 10px 0;
+  }
+  .application-comment-form {
+    display: flex;
+    margin-top: 15px;
+  }
+  .comment-form-input {
+    margin-bottom: auto;
+    width: 350px;
+    padding: 10px;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid orangered;
+  
+  }
+  .comment-form-input:focus{
+    outline: 0;
+  }
+  .comment-form-btn{
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color:transparent;
+    color: orangered;
+    border: 0;
+    cursor: pointer;
+    border: 1px solid orangered;
+  }
+  
+  .admin-application-btnGroup {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .admin-application-btn {
+    padding: 10px 40px;
+    color: #fff;
+    border: 0;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .green-btn {
+    background-color: green;
+  }
+  .red-btn {
+    background-color: red;
+  }

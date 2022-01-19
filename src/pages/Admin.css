@@ -1,0 +1,51 @@
+
+.admin-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(https://source.unsplash.com/random/?art,abstract,black);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .admin-form {
+    min-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  .admin-form-label {
+    color: #fff;
+    display: inline;
+  }
+  .admin-form-span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .admin-form-input {
+    margin: 10px auto;
+    padding: 8px 6px;
+    font-size: 1em;
+    color: #777;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .admin-form-input:focus {
+    color: #41b883;
+  }
+  .admin-form .btn {
+    margin-top: 10px;
+  }
