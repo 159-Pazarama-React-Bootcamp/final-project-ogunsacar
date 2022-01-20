@@ -18,8 +18,6 @@ export default function SingleApplication({ application }) {
               <br />
               {application.surname}
             </h3>
-
-            {application.age}
           </div>
           <div className="card-description">
              {application.description.substr(0,50) + '...'}

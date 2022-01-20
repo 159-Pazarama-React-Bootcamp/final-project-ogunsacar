@@ -10,7 +10,8 @@
   }
   
   .application-card .card:hover {
-    transform: rotate(3deg) scale(1.2);
+    transform: scale(1.2);
+    z-index: 2;
   }
   
   .application-card .card a {

@@ -1,0 +1,90 @@
+
+.find-application-progress-container {
+  margin-top: 20px;
+  color: #fff;
+  border-top: 5px solid #fff;
+}
+
+.find-application-progress-container h2{
+  text-align: center;
+  font-size: 32px;
+  
+}
+.find-application-applicant{
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.find-application-progress{
+  font-size: 32px;
+  text-transform: uppercase;
+  color: rgb(68,  0 , 255);
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.find-application-progress.approved{
+   color: #41b883;
+}
+.find-application-progress.declined{
+   color: red;
+}
+
+.find-application-form{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .find-application-label{
+    display: block;
+    margin: 24px auto;
+    color: #fff;
+  }
+  
+  .find-application-span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  .find-application-input {
+    padding: 8px 6px;
+    font-size: 1em;
+    color: #777;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.9);
+  }
+
+  .find-application-comments-ul{
+    list-style: none;
+  }
+
+  .find-application-comment-list {
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .find-application-comment-item{
+    flex:7;
+    word-break: break-all;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .find-application-comment-date{
+    flex: 3;
+    font-size: 12px;
+    font-weight: bold;
+  }

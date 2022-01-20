@@ -1,12 +1,41 @@
 .filters {
     max-width: 1200px;
     margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .searchbar{
+    flex : 1
+  }
+
+  .searchbar-input{
+width: 100%;
+padding: 10px;
+border:0;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  .tags{
+    margin-left: 50px;
+  }
+
+
+  .tag{
+    color: #666;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .tag.activeTag{
+    color: #222;
+    font-size: 24px;
   }
   
   .application-card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 40px;
     max-width: 1200px;
     margin: 40px auto;
   }

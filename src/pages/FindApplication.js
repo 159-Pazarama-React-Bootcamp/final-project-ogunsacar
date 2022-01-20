@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import useGetSingleDocument from "../hooks/useGetSingleDocument"
-import './FindApplicatioons.css'
+import "./FindApplications.css"
 
 export default function FindApplication() {
   const [quote, setQuote] = useState(null)
-  const [inputValue,setInputValue] = useState('')
-  const requestedAppId = localStorage.getItem("appId")
+  let requestedAppId = localStorage.getItem("appId")
+  const [inputValue, setInputValue] = useState(requestedAppId)
 
-  
-  
-
-  const { document: application } = useGetSingleDocument('applications',requestedAppId)
+const { document: application } = useGetSingleDocument(
+  "applications",
+  requestedAppId
+)
 
   useEffect(() => {
     fetch("https://api.quotable.io/random")
@@ -19,20 +19,58 @@ export default function FindApplication() {
       .then((data) => setQuote(data))
   }, [])
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("Tekrar bak!!! ")
+  }
 
   return (
     <div className="background">
       <Navbar />
-      <form className='find-application-form'>
-        <label className='find-application-label'>
-          <span className='find-application-span'>Başvuru kodu:</span>
-          <input className='find-application-input' value={inputValue} placeholder={requestedAppId} onChange={(e) => setInputValue(e.target.value)}  type="text"  required />
+      <form onSubmit={handleSubmit} className="find-application-form">
+        <label className="find-application-label">
+          <span className="find-application-span">Başvuru kodu:</span>
+          <input
+            className="find-application-input"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            type="text"
+            required
+          />
         </label>
-        <button className="btn">SORGULA</button>
-        <div className="application-progress">
-          Başvuru durumu
-          {application && <p> {application.name} - {application.surname} </p> }
-        </div>
+        <button type="submit" className="btn">
+          SORGULA
+        </button>
+        {application?.name && (
+          <div className="find-application-progress-container">
+            {/* <h2> Başvuru durumu </h2> */}
+            {application && (
+              <div className="find-application-applicant">
+                
+                {application.name} {application.surname}
+              </div>
+            )}
+            <ul className="find-application-comments-ul">
+              {application?.comments?.map((comment) => (
+                <li
+                  className="find-application-comment-list"
+                  key={comment.commentDate}
+                >
+                    <div className='find-application-comment-item'> {comment.comment} </div> 
+                    <div  className='find-application-comment-date'> {new Date(comment.commentDate).toLocaleString()} </div> 
+                </li>
+              ))}
+            </ul>
+            {application && (
+              <div
+                className={`find-application-progress ${ application?.progress === "Onaylandı" ? "approved" : ""     } ${application?.progress === "Reddedildi" ? "declined" : ""}`}
+              >
+                
+                {application.progress}
+              </div>
+            )}
+          </div>
+        )}
       </form>
 
       {quote && (

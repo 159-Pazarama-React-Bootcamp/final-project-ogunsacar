@@ -1,10 +1,11 @@
 
 .admin-application {
-    background-color: rgb(240, 240, 240);
+    background-color: transparent;
     min-height: 60vh;
     width: 640px;
     padding: 80px;
-    border: 1px solid #000;
+    border: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -69,7 +70,25 @@
   }
   .comment-list-item {
     margin: 10px 0;
+    border-bottom: 1px solid orangered;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
   }
+
+  .comment-item{
+    flex:7;
+    word-break: break-all;
+    margin: 10px;
+}
+.comment-date{
+  flex: 3;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
   .application-comment-form {
     display: flex;
     margin-top: 15px;
@@ -77,23 +96,22 @@
   .comment-form-input {
     margin-bottom: auto;
     width: 350px;
-    padding: 10px;
+    margin: 30px;
     border: 0;
-    background-color: transparent;
-    border-bottom: 1px solid orangered;
-  
+    border-bottom: solid #000 1px;
+    padding: 5px 10px;
   }
   .comment-form-input:focus{
     outline: 0;
   }
   .comment-form-btn{
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 50px;
     background-color:transparent;
-    color: orangered;
+    color: #333;
     border: 0;
     cursor: pointer;
-    border: 1px solid orangered;
+   
   }
   
   .admin-application-btnGroup {
@@ -116,4 +134,11 @@
   }
   .red-btn {
     background-color: red;
+  }
+  .btn-goBack {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: #fff;
+    background-color: #999;
   }

@@ -2,9 +2,9 @@ import {
   addDoc,
   collection,
   doc,
-  Timestamp,
   updateDoc,
 } from "@firebase/firestore"
+// import { ref,uploadBytesResumable,getDownloadURL } from "firebase/storage";
 import { useReducer, useEffect, useState } from "react/cjs/react.development"
 import { db } from "../firebase/config"
 
@@ -59,7 +59,7 @@ export const useFirestore = (col) => {
   //reducer hook
   const [response, dispatch] = useReducer(firestoreReducer, initialState)
 
-  const createdAt = Timestamp.fromDate(new Date())
+  const createdAt =  Date.now()
 
   const initialVariables = {progress : 'Bekliyor', comments :[{comment: 'Başvurunu aldık!',commentDate: createdAt}]}
 
@@ -70,7 +70,7 @@ export const useFirestore = (col) => {
   //const [addedApplicationId , setAddedApllicationId] = useState(null)
 
   // document reference
-  const ref = collection(db, col)
+  const colRef = collection(db, col)
 
   //only dispatch if not cancelled
   const dispatchIfNotCancelled = (action) => {
@@ -85,10 +85,32 @@ export const useFirestore = (col) => {
     dispatch({ type: "IS_PENDING", payload: true })
 
     try {
-      const createdAt = Timestamp.fromDate(new Date())
-      const addedDocument = await addDoc(ref, { ...doc, createdAt,...initialVariables })
+      const createdAt = Date.now()
       
+      /* const applicationsRef = ref(storage,`applications/${doc.name}${doc.surname}`)
       
+      const metadata = {
+        contentType : 'image/jpeg',
+      }    
+
+
+      const uploadTask =  uploadBytesResumable(applicationsRef,doc.attachedDoc,metadata)
+
+      uploadTask.on('state_changed', () => {
+
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+         doc.fileURL = downloadURL
+        })
+      })
+      console.log(doc); */
+      
+      const addedDocument = await addDoc(colRef, { ...doc, createdAt,...initialVariables })
+            
       localStorage.setItem('appId',addedDocument.id) 
      
       dispatchIfNotCancelled({ type: "ADDED_DOC", payload: addedDocument })

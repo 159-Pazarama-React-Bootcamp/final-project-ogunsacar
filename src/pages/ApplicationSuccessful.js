@@ -4,17 +4,17 @@ import './ApplicationSuccessful.css'
 export default function ApplicationSuccessful() {
   const navigate = useNavigate()
 
-  const appNumber = localStorage.getItem("appNumber")
+  const appId = localStorage.getItem("appId")
 
   return (
     <div className="successful-application">
       <div className="successful-application-container">
         <h3 className="successful-application-text">
-          Başvurunuz <span> başarılı </span> bir şekilde bize ulaştı.
+          Başvurduğunuz için teşekkürler.Başvurunuz <span> başarılı </span> bir şekilde bize ulaştı.
         </h3>
-        {appNumber && (
+        {appId && (
           <div className="successful-application-appNumber">
-            <h3 >{appNumber}</h3>
+            <h3 >{appId}</h3>
           </div>
         )}
         <button
