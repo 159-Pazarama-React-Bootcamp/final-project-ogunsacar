@@ -38,7 +38,7 @@ export default function Application() {
           application?.progress === "Onaylandı" ? "approved" : ""
         } ${application?.progress === "Reddedildi" ? "declined" : ""}`}
       >
-        {application?.id}{" "}
+        {application?.id}
       </h2>
       <h1
         className={`admin-application-progress ${
@@ -47,6 +47,7 @@ export default function Application() {
       >
         {application && application?.progress}
       </h1>
+      <img className='admin-application-image' src={application?.attachedDoc} alt={application?.name+ application?.surname} />
       <h2 className="admin-application-name">
         {application?.name} {application?.surname}
         <span className="admin-application-age-id">
@@ -135,7 +136,8 @@ export default function Application() {
           navigate("/admin/basvuru-listesi")
         }}
       >
-        Geri gel
+       
+{'<'}
       </button>
     </div>
   )

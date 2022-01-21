@@ -6,17 +6,21 @@ import "./FindApplications.css"
 export default function FindApplication() {
   const [quote, setQuote] = useState(null)
   let requestedAppId = localStorage.getItem("appId")
-  const [inputValue, setInputValue] = useState(requestedAppId)
+  
+  const [inputValue, setInputValue] = useState( requestedAppId?.length > 0 ? requestedAppId : 'Başvuru kodunuzu giriniz')
+  
+  
+  const { document: application } = useGetSingleDocument(
+    "applications",
+    inputValue
+  )
 
-const { document: application } = useGetSingleDocument(
-  "applications",
-  requestedAppId
-)
 
   useEffect(() => {
     fetch("https://api.quotable.io/random")
       .then((res) => res.json())
       .then((data) => setQuote(data))
+      
   }, [])
 
   const handleSubmit = (e) => {
@@ -38,7 +42,7 @@ const { document: application } = useGetSingleDocument(
             required
           />
         </label>
-        <button type="submit" className="btn">
+        <button  type="submit" className="btn">
           SORGULA
         </button>
         {application?.name && (

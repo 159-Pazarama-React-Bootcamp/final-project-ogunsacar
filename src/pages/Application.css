@@ -47,6 +47,12 @@
     color: red;
   }
   
+  .admin-application-image{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
   .admin-application-name {
     text-align: center;
     margin: 10px;
@@ -138,7 +144,8 @@
   .btn-goBack {
     position: absolute;
     top: 40px;
-    right: 20px;
-    color: #fff;
+    left: 20px;
+    color: #111;
     background-color: #999;
+    font-size: 24px;
   }

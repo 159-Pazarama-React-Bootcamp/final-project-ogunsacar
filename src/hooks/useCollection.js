@@ -4,19 +4,20 @@ import { useEffect,useState } from "react"
 import { db } from '../firebase/config'
 
 export default function useCollection(collectionName) {
+   // const [isPending,setIsPending] = useState(false)
     
-
     const [documents,setDocuments] = useState(null)
 
     // const order = useRef(_order).current
 
-    useEffect(()=>{
-        let ref = collection(db,collectionName)
-
     
-            ref = query(ref,orderBy('createdAt','desc'))
+    useEffect(()=>{
+        // setIsPending(true)
+        let ref = collection(db,collectionName)
         
-
+        ref = query(ref,orderBy('createdAt','desc'))
+        
+        
         const unsub = onSnapshot(ref,(snapshot) => {
             let results = []
             snapshot.docs.forEach((doc)=> {
@@ -24,7 +25,12 @@ export default function useCollection(collectionName) {
             })
             setDocuments(results)
         })
-        return () => unsub()
+       // setIsPending(false)
+
+        
+        return () => {
+            unsub()
+        }
     },[collectionName])
     
     return {documents}  
