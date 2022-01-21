@@ -47,27 +47,27 @@ export default function Application() {
       >
         {application && application?.progress}
       </h1>
-      <img className='admin-application-image' src={application?.attachedDoc} alt={application?.name+ application?.surname} />
+      <img className='admin-application-image' src={application?.attachedDoc} alt={application?.name} />
       <h2 className="admin-application-name">
         {application?.name} {application?.surname}
         <span className="admin-application-age-id">
-          Yaş : {application?.age} - TC No: {application?.idNumber}
+          Yaş : {application?.age} | TC No: {application?.idNumber}
         </span>
       </h2>
 
       <div className="admin-application-description">
-        Başvuru açıklaması: {application?.description}
+        <span> Başvuru açıklaması: </span>  {application?.description}
       </div>
-      <div className="admin-application-address">
-        Adres: {application?.address}
+      <div className="admin-application-description">
+        <span> Adres: </span>  {application?.address}
       </div>
-      {/* attached docs */}
       <form onSubmit={handleSubmit} className="application-comment-form">
         <input
           className="comment-form-input"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           type="text"
+          placeholder='Yorum ekleyebilirsiniz.'
         />
         <button className="comment-form-btn" type="submit">
           +

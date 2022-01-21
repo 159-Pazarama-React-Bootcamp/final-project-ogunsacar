@@ -1,151 +1,174 @@
-
 .admin-application {
-    background-color: transparent;
-    min-height: 60vh;
-    width: 640px;
-    padding: 80px;
-    border: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-  }
-  .admin-application-date {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    color: #999;
-    font-size: 20px;
-  }
-  .admin-application-applicationId {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 20px;
-    color: rgb(68, 0, 255);
-  }
-  .admin-application-applicationId.approved {
-    color: #41b883;
-  }
-  .admin-application-applicationId.declined {
-    color: red;
-  }
-  
-  .admin-application-progress {
-    color: rgb(68, 0, 255);
-    text-align: center;
-    text-transform: uppercase;
-    padding: 15px;
-  }
-  .admin-application-progress.approved {
-    color: green;
-  }
-  .admin-application-progress.declined {
-    color: red;
-  }
-  
-  .admin-application-image{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-  }
-
-  .admin-application-name {
-    text-align: center;
-    margin: 10px;
-  }
-  .admin-application-age-id {
-    font-size: 15px;
-    display: inline-block;
-    margin-left: 10px;
-  }
-  
-  .admin-application-description {
-  }
-  
-  .admin-application-address {
-  }
-  
-  .comments {
-    list-style: none;
-    flex: 1;
-    width: 100%;
-  }
-  .comment-list-item {
-    margin: 10px 0;
-    border-bottom: 1px solid orangered;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .comment-item{
-    flex:7;
-    word-break: break-all;
-    margin: 10px;
+  background-color: #fff;
+  min-height: 800px;
+  width: 640px;
+  padding: 80px;
+  border: 0;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
+    -10px -10px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
 }
-.comment-date{
+.admin-application-date {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #999;
+  font-size: 20px;
+}
+.admin-application-applicationId {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  color: rgb(68, 0, 255);
+}
+.admin-application-applicationId.approved {
+  color: #41b883;
+}
+.admin-application-applicationId.declined {
+  color: red;
+}
+
+.admin-application-progress {
+  color: rgb(68, 0, 255);
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+}
+.admin-application-progress.approved {
+  color: green;
+}
+.admin-application-progress.declined {
+  color: red;
+}
+
+.admin-application-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.admin-application-name {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px auto 20px;
+  font-size: 32px;
+}
+.admin-application-age-id {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.admin-application-description {
+  width: 100%;
+  word-break: break-all;
+  padding: 20px;
+  line-height: 24px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-application-description span {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.application-comment-form {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+}
+.comment-form-input {
+  flex: 1;
+  border: 2px solid orangered;
+  padding: 10px;
+  border-radius: 10px;
+}
+.comment-form-input::placeholder {
+  font-size: 16px;
+}
+.comment-form-input:placeholder-shown {
+  padding-left: 10px;
+}
+
+.comment-form-input:focus {
+  outline: 0;
+}
+.comment-form-btn {
+  font-size: 30px;
+  padding: 0 20px;
+  background-color: transparent;
+  color: #333;
+  border: 0;
+  cursor: pointer;
+}
+
+.comments {
+  list-style: none;
+  flex: 1;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.comment-list-item {
+  margin: 10px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.comment-item {
+  flex: 7;
+  word-break: break-all;
+  margin: 10px;
+}
+.comment-date {
   flex: 3;
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-
-  .application-comment-form {
-    display: flex;
-    margin-top: 15px;
-  }
-  .comment-form-input {
-    margin-bottom: auto;
-    width: 350px;
-    margin: 30px;
-    border: 0;
-    border-bottom: solid #000 1px;
-    padding: 5px 10px;
-  }
-  .comment-form-input:focus{
-    outline: 0;
-  }
-  .comment-form-btn{
-    padding: 5px 10px;
-    font-size: 50px;
-    background-color:transparent;
-    color: #333;
-    border: 0;
-    cursor: pointer;
-   
-  }
-  
-  .admin-application-btnGroup {
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .admin-application-btn {
-    padding: 10px 40px;
-    color: #fff;
-    border: 0;
-    font-size: 24px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .green-btn {
-    background-color: green;
-  }
-  .red-btn {
-    background-color: red;
-  }
-  .btn-goBack {
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    color: #111;
-    background-color: #999;
-    font-size: 24px;
-  }
+.admin-application-btnGroup {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.admin-application-btn {
+  padding: 10px 40px;
+  color: #fff;
+  border: 0;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.green-btn {
+  background-color: green;
+}
+.red-btn {
+  background-color: red;
+}
+.btn-goBack {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  color: #111;
+  background-color: #999;
+  font-size: 24px;
+}
