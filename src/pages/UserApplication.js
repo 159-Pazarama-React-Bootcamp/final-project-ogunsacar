@@ -1,33 +1,36 @@
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import useGetSingleDocument from "../hooks/useGetSingleDocument"
+
 
 export default function UserApplication() {
   const { basvuruNo } = useParams()
-  const { document: application } = useGetSingleDocument(
+  const { document: application,error } = useGetSingleDocument(
     "applications",
     basvuruNo
   )
-  /* const navigate = useNavigate()
+
+  const navigate = useNavigate()
 
   const handleClick = (e) => {
     navigate("/basvuru-sorgula")
   }
-   */
-  /* return (
-    <div className="notFound">
-    <aside className="notFound-aside">
-      <img
-        className="notFound-img"
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/Mirror.png"
-        alt="404"
-      />
-    </aside>
 
-    <h1 className="notFound-title application-notFound-title">Üzgünüz aradığınız başvuru bulunmamaktadır!</h1>
-    <button onClick={handleClick} className="btn btn-application-goBack">Geri dön</button>
-  </div>
-  )
- */
+  if(error){
+    return (
+      <div className="notFound">
+      <aside className="notFound-aside">
+        <img
+          className="notFound-img"
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/Mirror.png"
+          alt="404"
+        />
+      </aside>
+  
+      <h1 className="notFound-title application-notFound-title">Üzgünüz aradığınız başvuru bulunmamaktadır!</h1>
+      <button onClick={handleClick} className="btn btn-application-goBack">Geri dön</button>
+    </div>
+    )
+  }
 
   
     return (

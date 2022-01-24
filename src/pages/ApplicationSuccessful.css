@@ -10,12 +10,40 @@
   .successful-application-container {
     padding: 100px 150px;
     max-width: 1000px;
-    box-shadow: 0 0 10px rgba(65, 184, 131, 0.4);
+    box-shadow: 12px 12px 30px rgba(65, 184, 131, 0.4),-12px -12px 30px rgba(65, 184, 131, 0.4);
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+@media screen and (max-width: 768px) {
+    .successful-application-container{
+      max-width: 700px;
+      padding: 50px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .successful-application-container{
+      max-width: 420px;
+      padding: 20px;
+    }
+    .successful-application-appNumber {
+      font-size: 24px !important;
+    }
+  }
+@media screen and (max-width: 400px) {
+    .successful-application-container{
+      max-width: 350px;
+      padding: 25px;
+    }
+    .successful-application-appNumber {
+      font-size: 20px !important;
+    }
+
+}
+
+
   .successful-application-text {
     font-size: 32px;
   }
@@ -27,17 +55,58 @@
     background-color: #41b883;
     color: #fff;
     padding: 12px 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 20px;
     cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    font-size: 40px;
   }
   .successful-application-appNumber {
     text-align: center;
     font-size: 32px;
     color: #2f66c6;
+    padding: 20px; 
+    box-shadow: 5px 5px 2px rgba(0,0,0,0.1),-5px -5px 2px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    width: 100%;
+    
+  }
+  .successful-application-appNumber h4 {
+    font-size: 24px;
+    text-decoration: underline;
+    color: #333;
+  }
+
+  .information-container{
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1),-5px -5px 5px rgba(0,0,0,0.1);
     padding: 20px;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+  }
+  .information::-webkit-scrollbar {
+    display: none;
+  }
+
+  .information-name{
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 10px;
+  }
+  .information{
+    font-size: 18px;
+    margin: 10px;
+    max-height: 200px;
+  word-break: break-all;
+
+  }
+
+  .information span{
+    font-weight: bold;
+    text-transform: uppercase;
   }
