@@ -3,13 +3,11 @@ import { useState } from "react"
 import { useNavigate } from "react-router"
 import * as Yup from "yup"
 import { useFirestore } from "../hooks/useFirestore"
-import './Form.css'
-
-
+import "./Form.css"
+import Spinner from "./Spinner"
 
 export default function Form() {
-  const { addDocument, response } =
-    useFirestore("applications")
+  const { addDocument, response } = useFirestore("applications")
   const [attachedDoc, setAttachedDoc] = useState(null)
   const [attachedDocError, setAttachedDocError] = useState(null)
   const navigate = useNavigate()
@@ -29,7 +27,6 @@ export default function Form() {
     setAttachedDocError(null)
     setAttachedDoc(selected)
   }
-
 
   const formik = useFormik({
     initialValues: {
@@ -54,30 +51,43 @@ export default function Form() {
         .min(10, "10 yaşından küçükseniz büyüğünüze danışın!")
         .max(100, "100 yaşından büyükseniz gençlerden yardım alın!"),
       description: Yup.string()
-        .min(5, "Başvuru nedeni 10 harften az olmamalı!")
+        .min(10, "Başvuru nedeni 10 harften az olmamalı!")
         .max(400, "Başvuru nedeni 400 harften fazla olmamalı!")
         .required("Başvuru nedenini belirtmeniz gerekmektedir!"),
       address: Yup.string()
         .min(20, "Adresiniz 20 karakterden az olmamalı!")
         .max(200, "Adresiniz 200 karakterden fazla olmamalı!")
         .required("Adresinizi belirtmeniz gerekmektedir!"),
+      idNumber: Yup.string()
+        .min(11, "Tc kimlik numaranız 11 haneli olmalıdır.")
+        .max(11, "Tc kimlik numaranız 11 haneli olmalıdır."),
     }),
     onSubmit: (values, { resetForm }) => {
       addDocument({ ...values, attachedDoc }).then(() => {
         resetForm()
-        setTimeout(() => {
-          navigate("/basvuru-basarili")
-        }, 500)
+        navigate("/basvuru-basarili")
       })
     },
   })
 
+  if(response.isPending){
+    return (
+      <Spinner />
+    )
+  }
+  if(response.error){
+    return (
+      <h2>Hata oluştu başvurunuz gönderilemedi.</h2>
+    )
+  }
+
   return (
-    <form className='application-form' onSubmit={formik.handleSubmit}>
-      <label className='application-form-label'>
-        <span className='application-form-span'>Ad:</span>
+    <form className="application-form" onSubmit={formik.handleSubmit}>
+      <label className="application-form-label">
+        <span className="application-form-span">Ad:</span>
         <input
-        className='application-form-input'
+        
+          className="application-form-input"
           id="name"
           name="name"
           type="text"
@@ -90,10 +100,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.name}</p>
         )}
       </label>
-      <label className='application-form-label'>
-        <span className='application-form-span'>Soyad:</span>
+      <label className="application-form-label">
+        <span className="application-form-span">Soyad:</span>
         <input
-        className='application-form-input'
+          className="application-form-input"
           id="surname"
           name="surname"
           type="text"
@@ -106,10 +116,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.surname}</p>
         )}
       </label>
-      <label className='application-form-label'>
-        <span className='application-form-span'>Yaş:</span>
+      <label className="application-form-label">
+        <span className="application-form-span">Yaş:</span>
         <input
-        className='application-form-input'
+          className="application-form-input"
           id="age"
           name="age"
           type="number"
@@ -122,10 +132,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.age}</p>
         )}
       </label>
-      <label className='application-form-label'>
-        <span className='application-form-span'>Tc Kimlik No:</span>
+      <label className="application-form-label">
+        <span className="application-form-span">Tc Kimlik No:</span>
         <input
-        className='application-form-input'
+          className="application-form-input"
           id="idNumber"
           name="idNumber"
           type="number"
@@ -138,10 +148,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.idNumber}</p>
         )}
       </label>
-      <label className='application-form-label'>
-        <span className='application-form-span'>Başvuru Nedeni:</span>
+      <label className="application-form-label">
+        <span className="application-form-span">Başvuru Nedeni:</span>
         <textarea
-        className='application-form-textarea'
+          className="application-form-textarea"
           id="description"
           name="description"
           type="text"
@@ -154,10 +164,10 @@ export default function Form() {
           <p className="input-error">{formik.errors.description}</p>
         )}
       </label>
-      <label className='application-form-label'> 
-        <span className='application-form-span'>Adres:</span>
+      <label className="application-form-label">
+        <span className="application-form-span">Adres:</span>
         <textarea
-        className='application-form-textarea'
+          className="application-form-textarea"
           id="address"
           name="address"
           type="text"
@@ -170,12 +180,17 @@ export default function Form() {
           <p className="input-error">{formik.errors.address}</p>
         )}
       </label>
-      <label className='application-form-label'>
-        <span className='application-form-span'>
+      <label className="application-form-label">
+        <span className="application-form-span">
           Fotoğraflar/Ekler:{" "}
           <span className="mailandpassword">(Zorunlu alan değil.)</span>{" "}
         </span>
-        <input className='application-form-input' type="file" onChange={handleFileChange} />
+        <input
+        accept='.png,.jpeg,.jpg'
+          className="application-form-input"
+          type="file"
+          onChange={handleFileChange}
+        />
         {attachedDocError && (
           <div className="input-error">{attachedDocError}</div>
         )}
@@ -191,7 +206,6 @@ export default function Form() {
           GÖNDERİLİYOR
         </button>
       )}
-      
     </form>
   )
 }

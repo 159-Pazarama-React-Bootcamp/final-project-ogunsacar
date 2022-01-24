@@ -1,31 +1,27 @@
 import {  useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 import Navbar from "../components/Navbar"
-import useGetSingleDocument from "../hooks/useGetSingleDocument"
+
 import "./FindApplications.css"
 
 export default function FindApplication() {
   const [quote, setQuote] = useState(null)
   let requestedAppId = localStorage.getItem("appId")
+  const navigate = useNavigate()
   
   const [inputValue, setInputValue] = useState( requestedAppId?.length > 0 ? requestedAppId : 'Başvuru kodunuzu giriniz')
   
-  
-  const { document: application } = useGetSingleDocument(
-    "applications",
-    inputValue
-  )
-
-
   useEffect(() => {
     fetch("https://api.quotable.io/random")
       .then((res) => res.json())
       .then((data) => setQuote(data))
       
   }, [])
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Tekrar bak!!! ")
+    navigate(`/basvuru/${inputValue}`)
   }
 
   return (
@@ -45,36 +41,6 @@ export default function FindApplication() {
         <button  type="submit" className="btn">
           SORGULA
         </button>
-        {application?.name && (
-          <div className="find-application-progress-container">
-            {/* <h2> Başvuru durumu </h2> */}
-            {application && (
-              <div className="find-application-applicant">
-                
-                {application.name} {application.surname}
-              </div>
-            )}
-            <ul className="find-application-comments-ul">
-              {application?.comments?.map((comment) => (
-                <li
-                  className="find-application-comment-list"
-                  key={comment.commentDate}
-                >
-                    <div className='find-application-comment-item'> {comment.comment} </div> 
-                    <div  className='find-application-comment-date'> {new Date(comment.commentDate).toLocaleString()} </div> 
-                </li>
-              ))}
-            </ul>
-            {application && (
-              <div
-                className={`find-application-progress ${ application?.progress === "Onaylandı" ? "approved" : ""     } ${application?.progress === "Reddedildi" ? "declined" : ""}`}
-              >
-                
-                {application.progress}
-              </div>
-            )}
-          </div>
-        )}
       </form>
 
       {quote && (

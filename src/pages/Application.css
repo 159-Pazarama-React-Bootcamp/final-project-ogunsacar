@@ -4,8 +4,8 @@
   width: 640px;
   padding: 80px;
   border: 0;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
-    -10px -10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 5px rgba(255,255,255, 0.9),
+  -2px -2px 5px rgba(255,255,255, 0.9);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,54 @@
   align-items: center;
   border-radius: 20px;
 }
+
+.admin-application::before{
+  content: "";
+  background-image: url(../assets/bgc-blue.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: -100;
+  bottom: 100;
+  left: 100;
+  right: 100;
+  z-index: -1;
+}
+
+.admin-application.declined::before{
+  content: "";
+  background-image: url(../assets/bgc-red.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: -100;
+  bottom: 100;
+  left: 100;
+  right: 100;
+  z-index: -1;
+}
+.admin-application.approved::before{
+  content: "";
+  background-image: url(../assets/bgc-green.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: -100;
+  bottom: 100;
+  left: 100;
+  right: 100;
+  z-index: -1;
+}
+
 .admin-application-date {
   position: absolute;
   top: 10px;
@@ -81,6 +129,7 @@
 .admin-application-description span {
   text-transform: uppercase;
   letter-spacing: 1.2px;
+  font-weight: bold;
 }
 
 .application-comment-form {
@@ -119,11 +168,16 @@
   width: 100%;
   margin-top: 20px;
   border-radius: 10px;
+  max-height: 295px;
+  overflow: scroll;
+}
+.comments::-webkit-scrollbar {
+  display: none;
 }
 .comment-list-item {
   margin: 10px 0;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-bottom: 1px solid #000;
+ /*  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.3); */
   display: flex;
   justify-content: space-between;
   align-items: center;

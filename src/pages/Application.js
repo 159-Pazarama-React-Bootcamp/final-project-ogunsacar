@@ -16,7 +16,7 @@ export default function Application() {
   const handleSubmit = (e) => {
     e.preventDefault()
     updateDocument(application?.id, {
-      comments: [...application?.comments, newComment],
+      comments: [ newComment,...application?.comments],
     })
 
     setComment("")
@@ -29,7 +29,9 @@ export default function Application() {
   )
 
   return (
-    <div className="admin-application">
+    <div className={`admin-application ${
+      application?.progress === "Onaylandı" ? "approved" : ""
+    } ${application?.progress === "Reddedildi" ? "declined" : ""}`}>
       <h2 className="admin-application-date">
         {new Date(application?.createdAt).toLocaleString()}
       </h2>
@@ -98,7 +100,7 @@ export default function Application() {
               if (answer === "onay") {
                 updateDocument(application?.id, {
                   progress: "Onaylandı",
-                  comments: [...application?.comments, approved],
+                  comments: [approved,...application?.comments ],
                 })
                 
               }
@@ -118,7 +120,7 @@ export default function Application() {
               if (answer === "red") {
                 updateDocument(application?.id, {
                   progress: "Reddedildi",
-                  comments: [...application?.comments, declined],
+                  comments: [declined,...application?.comments ],
                 })
               }
             }}

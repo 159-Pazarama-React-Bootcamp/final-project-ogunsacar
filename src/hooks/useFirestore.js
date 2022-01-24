@@ -29,8 +29,6 @@ const firestoreReducer = (state, action) => {
         success: true,
         error: null,
       }
-    case "DELETED_DOC":
-      return { isPending: false, document: null, success: true, error: null }
     case "UPDATED_DOC":
       return {
         isPending: false,

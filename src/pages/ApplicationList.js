@@ -11,8 +11,8 @@ export default function ApplicationList() {
   const [currentTag, setCurrentTag] = useState("hepsi")
   let { documents: applications } = useCollection("applications")
 
-const btnTag = document.getElementById('hepsi')
 
+const btnTag = document.getElementById('hepsi')
   useEffect(()=> {
     if(applications?.length > 0){
       btnTag.click()
@@ -47,18 +47,11 @@ const btnTag = document.getElementById('hepsi')
     }
   }
   
-  console.log(applications);
 
   if (applications?.length === 0) {
-    return <div className="no-application">Henüz başvuru yapılmamış.</div>
+    return <div className="no-application">Başvuru bulunmamaktadır.</div>
   }
 
-
-
-  
-  
-  
-    
 
   return (
     

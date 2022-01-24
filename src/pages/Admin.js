@@ -1,6 +1,6 @@
 import { useFormik } from "formik"
 import { useNavigate } from "react-router"
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import useAuthContext from "../hooks/useAuthContext"
 import { useLogin } from "../hooks/useLogin"
 import { useLogout } from "../hooks/useLogout"
@@ -91,7 +91,7 @@ export default function Admin() {
     return (
       <div className="dashboard">
         <div className="buttonDiv">
-          <h2>BAŞVURULAR</h2>
+          <Link className='application-link' to='basvuru-listesi'>BAŞVURULAR</Link>
           <button
             className="btn logout-button"
             onClick={() => {

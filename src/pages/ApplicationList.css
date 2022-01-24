@@ -45,3 +45,9 @@
 .application-list-container{
   overflow: hidden;
 }
+
+.no-application {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+}

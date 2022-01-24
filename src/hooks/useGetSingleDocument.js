@@ -6,15 +6,19 @@ import { db } from "../firebase/config"
 
 export default function useGetSingleDocument(col, id) {
   const [document, setDocument] = useState(null)
+ 
 
   const getDocRef = doc(db, col, id)
 
   const ref = useRef(getDocRef).current
+  
 
   useEffect(() => {
-    onSnapshot(ref, (doc) => {
+    const unsub = onSnapshot(ref, (doc) => {
       setDocument({ ...doc.data(), id: doc.id })
-    })
+    },(error) => console.log(error))
+
+    return () => unsub()
   }, [ref])
   return { document }
 }
