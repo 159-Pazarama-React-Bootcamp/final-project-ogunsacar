@@ -4,13 +4,27 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url(https://source.unsplash.com/random/?art,abstract,black);
+      url(https://source.unsplash.com/random/?art,abstract);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
   }
+@media screen and (max-width: 600px) {
+ .admin-form{
+  min-width: 300px !important;
+  max-width: 600px !important;
+  padding: 0;
+ } 
+}
+@media screen and (min-width: 1024px) {
+ .admin-form{
+  min-width: 600px !important; 
+ } 
+}
+
   
   .admin-form {
     min-width: 480px;
@@ -57,7 +71,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    padding: 0 20px;
     max-width: 1200px;
   }
 

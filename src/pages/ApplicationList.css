@@ -11,6 +11,22 @@
   flex: 1;
 }
 
+@media screen and (max-width : 768px) {
+  .searchbar{
+    margin-bottom: 20px;
+  }
+  
+}
+@media screen and (max-width : 480px) {
+  .searchbar{
+    margin: 20px;
+  }
+  .tag{
+    font-size: 13px !important;
+  }
+  
+}
+
 .searchbar-input {
   min-width: 250px;
   width: 100%;

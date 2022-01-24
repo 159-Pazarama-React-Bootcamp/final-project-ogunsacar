@@ -14,6 +14,7 @@
   border-radius: 20px;
 }
 
+
 .admin-application::before{
   content: "";
   background-image: url(../assets/bgc-blue.svg);
@@ -75,6 +76,22 @@
   font-size: 20px;
   color: rgb(68, 0, 255);
 }
+
+@media screen and (max-width: 600px) {
+  .admin-application{
+    padding: 10px;
+  }
+  .admin-application-date{
+    font-size: 12px;
+  }
+  .admin-application-applicationId {
+    font-size: 12px;
+  }
+  .admin-application{
+    width: 100% ;
+  }
+}
+
 .admin-application-applicationId.approved {
   color: #41b883;
 }
