@@ -14,7 +14,7 @@
 
 This project built as Pazarama React Bootcamp Final Project.It is about creating application and following the results of it on the users side. Getting applications which you can see all the applications on the admin side. 
 
-Admin can evaluate the application by adding comment on it. After admin decided, who can approve or reject the application. 
+Admin can evaluate the application by adding comment on it. After admin decided, does approve or reject the application. 
 
 Applicant can see the comments and result of the application simultaneously. 
 
