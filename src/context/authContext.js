@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "@firebase/auth";
-import {  createContext , useEffect, useReducer } from "react";
+import React,{  createContext , useEffect, useReducer } from "react";
 import { auth } from "../firebase/config";
 
 export const AuthContext = createContext()
@@ -32,7 +32,6 @@ useEffect(()=>{
     return (()=>unsub()) 
 }, [])
 
-// console.log(state);
 
     return (
         <AuthContext.Provider value={{...state,dispatch}}>

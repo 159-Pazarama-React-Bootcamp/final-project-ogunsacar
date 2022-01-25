@@ -1,16 +1,13 @@
 import { collection, onSnapshot, orderBy, query } from "@firebase/firestore"
-import { useEffect,useState } from "react"
-// import { useRef } from "react/cjs/react.development"
+import React,{ useEffect,useState } from "react"
+
 import { db } from '../firebase/config'
 
 export default function useCollection(collectionName) {
-   // const [isPending,setIsPending] = useState(false)
     
     const [documents,setDocuments] = useState(null)
 
-    // const order = useRef(_order).current
-
-    
+ 
     useEffect(()=>{
         // setIsPending(true)
         let ref = collection(db,collectionName)

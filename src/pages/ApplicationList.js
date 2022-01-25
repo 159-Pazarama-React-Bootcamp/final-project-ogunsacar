@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useEffect } from "react/cjs/react.development"
+import React,{ useState } from "react"
+import { useEffect } from "react"
 import SingleApplication from "../components/SingleApplication"
 import useCollection from "../hooks/useCollection"
 import "./ApplicationList.css"
