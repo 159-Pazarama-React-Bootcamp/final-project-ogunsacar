@@ -34,5 +34,5 @@ to test:
 ### `npm test`
 
 
-This app created by [Ogün Saçar](https://www.linkedin.com/in/ogunsacar/){target="_blank"} (You can contact me if you have any question about app or anything)
+This app created by [Ogün Saçar](https://www.linkedin.com/in/ogunsacar/) (You can contact me if you have any question about app or anything)
 
