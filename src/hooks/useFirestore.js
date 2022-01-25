@@ -1,6 +1,6 @@
 import { addDoc, collection, doc, updateDoc } from "@firebase/firestore"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import React,{ useReducer, useEffect, useState } from "react"
+import { useReducer, useEffect, useState } from "react"
 import { db, storage } from "../firebase/config"
 
 let initialState = {

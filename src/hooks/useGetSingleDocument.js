@@ -1,5 +1,5 @@
 import { doc, onSnapshot } from "@firebase/firestore"
-import React,{ useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { db } from "../firebase/config"
 
 // getting single application
