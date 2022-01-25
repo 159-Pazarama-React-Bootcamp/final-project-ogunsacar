@@ -70,23 +70,23 @@ export default function Form() {
     },
   })
 
-  if(response.isPending){
-    return (
-      <Spinner />
-    )
+  if (response.isPending) {
+    return <Spinner />
   }
-  if(response.error){
-    return (
-      <h2>Hata oluştu başvurunuz gönderilemedi.</h2>
-    )
+  if (response.error) {
+    return <h2>Hata oluştu başvurunuz gönderilemedi.</h2>
   }
 
   return (
-    <form className="application-form" onSubmit={formik.handleSubmit}>
+    <form
+      data-testid="application-form"
+      className="application-form"
+      onSubmit={formik.handleSubmit}
+    >
       <label className="application-form-label">
         <span className="application-form-span">Ad:</span>
         <input
-        
+          data-testid="application-name-input"
           className="application-form-input"
           id="name"
           name="name"
@@ -103,6 +103,7 @@ export default function Form() {
       <label className="application-form-label">
         <span className="application-form-span">Soyad:</span>
         <input
+          data-testid="application-surname-input"
           className="application-form-input"
           id="surname"
           name="surname"
@@ -119,6 +120,7 @@ export default function Form() {
       <label className="application-form-label">
         <span className="application-form-span">Yaş:</span>
         <input
+          data-testid="application-age-input"
           className="application-form-input"
           id="age"
           name="age"
@@ -135,6 +137,7 @@ export default function Form() {
       <label className="application-form-label">
         <span className="application-form-span">Tc Kimlik No:</span>
         <input
+          data-testid="application-personId-input"
           className="application-form-input"
           id="idNumber"
           name="idNumber"
@@ -151,6 +154,7 @@ export default function Form() {
       <label className="application-form-label">
         <span className="application-form-span">Başvuru Nedeni:</span>
         <textarea
+          data-testid="application-description-textarea"
           className="application-form-textarea"
           id="description"
           name="description"
@@ -167,6 +171,7 @@ export default function Form() {
       <label className="application-form-label">
         <span className="application-form-span">Adres:</span>
         <textarea
+          data-testid="application-address-textarea"
           className="application-form-textarea"
           id="address"
           name="address"
@@ -186,7 +191,7 @@ export default function Form() {
           <span className="mailandpassword">(Zorunlu alan değil.)</span>{" "}
         </span>
         <input
-        accept='.png,.jpeg,.jpg'
+          accept=".png,.jpeg,.jpg"
           className="application-form-input"
           type="file"
           onChange={handleFileChange}

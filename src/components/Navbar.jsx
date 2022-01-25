@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
-import './Navbar.css'
+import { NavLink } from "react-router-dom"
+import "./Navbar.css"
 export default function Navbar() {
-    return (
-        <nav>
-            <NavLink to='/basvuru-olustur'>Başvuru oluştur</NavLink>
-            <NavLink to='/basvuru-sorgula'>Başvuru durumu</NavLink>
-        </nav>
-    )
+  return (
+    <nav>
+      <NavLink data-testid='create-application' to="/basvuru-olustur">Başvuru oluştur</NavLink>
+      <NavLink data-testid='application-progress' to="/basvuru-sorgula">Başvuru durumu</NavLink>
+    </nav>
+  )
 }

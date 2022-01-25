@@ -8,7 +8,7 @@ export default function NotFound() {
     navigate('/basvuru-sorgula')
   }
   return (
-    <div className="notFound">
+    <div data-testid='notFound' className="notFound">
       <aside className="notFound-aside">
         <img
           className="notFound-img"

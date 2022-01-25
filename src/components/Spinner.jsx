@@ -1,4 +1,4 @@
 import './Spinner.css'
 export default function Spinner() {
-  return <div className='loader'>Loading...</div>;
+  return <div data-testid='loader' className='loader'>Loading...</div>;
 }
