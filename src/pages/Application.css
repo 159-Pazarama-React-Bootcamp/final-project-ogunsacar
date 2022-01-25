@@ -143,7 +143,7 @@
 
 .admin-application-description {
   width: 100%;
-  word-break: break-all;
+  word-break: break-word;
   padding: 20px;
   line-height: 24px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.3);
@@ -211,7 +211,7 @@
 
 .comment-item {
   flex: 7;
-  word-break: break-all;
+  word-break: break-word;
   margin: 10px;
 }
 .comment-date {

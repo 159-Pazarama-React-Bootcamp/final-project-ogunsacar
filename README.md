@@ -12,13 +12,15 @@
 
 ## About Project
 
-This project built as Pazarama React Bootcamp Final Project.It is about creating application and following the results of it on the users side. Getting applications which you can see all the applications on the admin side. 
+This project built as Pazarama React Bootcamp Final Project. It is about creating application and following the results of it on the users side. Getting applications which you can see all the applications on the admin side. 
 
 Admin can evaluate the application by adding comment on it. After admin decided, does approve or reject the application. 
 
 Applicant can see the comments and result of the application simultaneously. 
 
 On the 'admin/basvuru-listesi' page admin sees all the applications and can filter by it's progress or applicant name.
+
+!!! IF YOU WANT TO SEE CHANGES SIMULTANEOUSLY YOU SHOULD OPEN ONE OF THE LINK IN PRIVATE WINDOW. OTHERWISE WHEN YOU LOGIN AS ADMIN IT WILL DEFINE YOU AS A USER AND SHOW YOU PAGES AS ADMIN !!!
 
 You can visit as a user of the application [DEMO AS USER](https://pazarama-final-project.firebaseapp.com/basvuru-olustur) 
 
